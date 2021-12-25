@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:responsive_design_2021flutter/const.dart';
+import 'package:responsive_design_2021flutter/widgets/protrait_widget.dart';
+import 'package:responsive_design_2021flutter/widgets/landscape_widget.dart';
 
 class LayoutBuilderResponsivePage extends StatefulWidget {
   const LayoutBuilderResponsivePage({Key? key}) : super(key: key);
@@ -10,88 +13,20 @@ class LayoutBuilderResponsivePage extends StatefulWidget {
 
 class _LayoutBuilderResponsivePageState
     extends State<LayoutBuilderResponsivePage> {
-  String name = "Responsive Design 2021";
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(name),
+        title: const Text(AppConstant.appname),
       ),
       body: LayoutBuilder(
           builder: (BuildContext context, BoxConstraints constraints) {
         if (constraints.maxWidth < 600) {
-          return one();
+          return protraitMode(context);
         } else {
-          return two();
+          return landscapeMode(context);
         }
       }),
-    );
-  }
-
-  Widget one() {
-    return Column(
-      children: [
-        Expanded(
-          child: Container(
-            color: Colors.blueGrey,
-            width: MediaQuery.of(context).size.width,
-            height: 450,
-          ),
-        ),
-        const SizedBox(
-          height: 3,
-        ),
-        Container(
-          color: Colors.pink,
-          width: MediaQuery.of(context).size.width,
-          height: 450,
-        ),
-        const SizedBox(
-          height: 3,
-        ),
-        Flexible(
-          flex: 2,
-          child: Container(
-            color: Colors.red,
-            width: MediaQuery.of(context).size.width,
-            height: 450,
-          ),
-        ),
-      ],
-    );
-  }
-
-  Widget two() {
-    return Column(
-      children: [
-        Expanded(
-          child: Container(
-            color: Colors.blueGrey,
-            width: MediaQuery.of(context).size.width,
-            height: MediaQuery.of(context).size.height,
-          ),
-        ),
-        const SizedBox(
-          height: 10,
-        ),
-        Expanded(
-          child: Container(
-            color: Colors.pink,
-            width: MediaQuery.of(context).size.width,
-            height: 450,
-          ),
-        ),
-        const SizedBox(
-          height: 10,
-        ),
-        Flexible(
-          child: Container(
-            color: Colors.red,
-            width: MediaQuery.of(context).size.width,
-            height: 450,
-          ),
-        ),
-      ],
     );
   }
 }

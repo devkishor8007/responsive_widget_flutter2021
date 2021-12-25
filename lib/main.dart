@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:responsive_design_2021flutter/page_responsive/layout_builder.dart';
+import 'package:responsive_design_2021flutter/page_responsive/orientation_builder.dart';
 
 void main() {
   runApp(const MyApp());
@@ -16,7 +16,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const LayoutBuilderResponsivePage(),
+      home: const OrientationBuilderResponsivePage(),
     );
   }
 }
